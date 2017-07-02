@@ -40,8 +40,11 @@ public class LoginActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+
         edit_id = (EditText)findViewById(R.id.login_id);
         edit_pwd = (EditText)findViewById(R.id.login_pwd);
+
+
     }
 
 
@@ -52,10 +55,10 @@ public class LoginActivity extends BaseActivity {
         input_id = edit_id.getText().toString();
         input_pwd = edit_pwd.getText().toString();
 
-        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-        startActivity(intent);
+        //Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+        //startActivity(intent);
 
-        //getData("http://119.205.220.130/getUserData.php");
+        getData("http://220.230.119.159/getUserData.php");
 
 
 
@@ -139,13 +142,13 @@ public class LoginActivity extends BaseActivity {
             for (int i = 0; i < User.length(); i++) {
                 JSONObject c = User.getJSONObject(i);
 
-                String id = c.getString("u_id");
-                String pwd = c.getString("u_pwd");
+                String phone = c.getString("phone");
+                String pwd = c.getString("pwd");
 
 
 
 
-                if(input_id.equals(id) && input_pwd.equals(pwd)){
+                if(input_id.equals(phone) && input_pwd.equals(pwd)){
                     isExist = true;
                     break;
                 }
@@ -157,7 +160,9 @@ public class LoginActivity extends BaseActivity {
             }
             else if(isExist == true){
 
-                Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
+
+
+                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                 startActivity(intent);
             }
 

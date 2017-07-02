@@ -23,16 +23,15 @@ public class SignupActivity extends BaseActivity{
 
     private EditText edit_ID;
     private EditText edit_PWD;
-    private EditText edit_Name;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
 
+
         edit_ID = (EditText)findViewById(R.id.edit_id);
         edit_PWD = (EditText)findViewById(R.id.edit_pwd);
-        edit_Name = (EditText)findViewById(R.id.edit_name);
     }
 
 
@@ -42,17 +41,16 @@ public class SignupActivity extends BaseActivity{
 
     public void signupOnClick(View v){
 
-        String id = edit_ID.getText().toString();
+        String phone = edit_ID.getText().toString();
         String pwd = edit_PWD.getText().toString();
-        String name = edit_Name.getText().toString();
 
-        insertToDatabase(id,pwd,name);
+        insertToDatabase(phone,pwd);
 
     }
 
-    private void insertToDatabase(String id,String pwd,String name){
+    private void insertToDatabase(String phone,String pwd){
 
-        class InsertData extends AsyncTask<String, Void, String> {
+        class InsertData extends AsyncTask<String, String, String> {
             ProgressDialog loading;
 
 
@@ -71,7 +69,7 @@ public class SignupActivity extends BaseActivity{
                 Toast.makeText(getApplicationContext(),s, Toast.LENGTH_LONG).show();
                 if(s.startsWith("s")){
 
-                    Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
+                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                     startActivity(intent);
 
                     finish();
@@ -89,14 +87,14 @@ public class SignupActivity extends BaseActivity{
             protected String doInBackground(String... params) {
 
                 try{
-                    String id = (String)params[0];
+                    String phone = (String)params[0];
                     String pwd = (String)params[1];
-                    String name = (String)params[2];
 
-                    String link="http://119.205.220.130/user.php";
-                    String data  = URLEncoder.encode("u_id", "UTF-8") + "=" + URLEncoder.encode(id, "UTF-8");
-                    data += "&" + URLEncoder.encode("u_pwd", "UTF-8") + "=" + URLEncoder.encode(pwd, "UTF-8");
-                    data += "&" + URLEncoder.encode("u_name", "UTF-8") + "=" + URLEncoder.encode(name, "UTF-8");
+
+                    String link="http://220.230.119.159/user.php";
+                    String data  = URLEncoder.encode("phone", "UTF-8") + "=" + URLEncoder.encode(phone, "UTF-8");
+                    data += "&" + URLEncoder.encode("pwd", "UTF-8") + "=" + URLEncoder.encode(pwd, "UTF-8");
+
 
                     URL url = new URL(link);
                     URLConnection conn = url.openConnection();
@@ -128,7 +126,7 @@ public class SignupActivity extends BaseActivity{
         }
 
         InsertData task = new InsertData();
-        task.execute(id, pwd,name);
+        task.execute(phone, pwd);
     }
 
 

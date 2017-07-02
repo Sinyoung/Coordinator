@@ -35,8 +35,6 @@
             android:theme="@style/AppTheme.NoActionBar"/>
         <activity android:name=".SignupActivity"  android:theme="@style/AppTheme.NoActionBar"/>
 
-        <activity android:name=".HomeActivity"/>
-
 
         <activity android:name=".MainActivity"/>
         <activity android:name=".ToCoordiActivity"/>

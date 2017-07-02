@@ -48,7 +48,7 @@
         <EditText
             android:layout_weight="1"
             android:id="@+id/edit_id"
-            android:hint="\tYour ID"
+            android:hint="\tYour Phone number"
             android:background="#99D3D3D3"
             android:layout_width="match_parent"
             android:layout_height="50dp" />
@@ -81,29 +81,7 @@
 
 
     </LinearLayout>
-    <LinearLayout
-        android:layout_weight="1"
-        android:gravity="center"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
 
-        <ImageView
-            android:layout_weight="8"
-            android:layout_marginRight="10dp"
-            android:src="@drawable/avatar"
-            android:layout_width="match_parent"
-            android:layout_height="50dp" />
-        <EditText
-            android:layout_weight="1"
-            android:id="@+id/edit_name"
-            android:hint="\tYour Name"
-            android:background="#99D3D3D3"
-            android:layout_width="match_parent"
-            android:layout_height="50dp" />
-
-    </LinearLayout>
     <LinearLayout
         android:layout_weight="1"
         android:layout_width="match_parent"

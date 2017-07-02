@@ -52,6 +52,9 @@ public class MainActivity extends BaseActivity {
     Camera camera;
     Context ctx;
 
+
+
+
     private final static int PERMISSIONS_REQUEST_CODE = 100;
     // Camera.CameraInfo.CAMERA_FACING_FRONT or Camera.CameraInfo.CAMERA_FACING_BACK
     private final static int CAMERA_FACING = Camera.CameraInfo.CAMERA_FACING_BACK;
